@@ -3,6 +3,7 @@ package com.example.odontokids
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -44,17 +46,34 @@ fun TelaInicial() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            // Espaço reservado para a imagem futura
-            Spacer(modifier = Modifier.height(100.dp))
+            // Linha contendo imagem e texto
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically, // Alinha verticalmente no centro
+                horizontalArrangement = Arrangement.Center // Alinha horizontalmente no centro
+            ) {
+                // Texto
+                Text(
+                    text = "Odonto Kids",
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                )
 
-            // Texto principal
-            Text(
-                text = "Odonto Kids :)",
-                fontSize = 32.sp,
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                textAlign = TextAlign.Center
-            )
+                Spacer(modifier = Modifier.width(10.dp))
+
+                // Imagem
+                Image(
+                    painter = painterResource(id = R.drawable.logo), // Substitua 'logo' pelo nome do arquivo da sua imagem
+                    contentDescription = "Logo",
+                    modifier = Modifier
+                        .size(40.dp) // Tamanho da imagem (ajuste conforme necessário)
+                        .padding(end = 8.dp) // Espaço entre a imagem e o texto
+                        .padding()
+                )
+            }
+
 
             // Subtítulo
             Text(
